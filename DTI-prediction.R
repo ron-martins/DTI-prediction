@@ -24,7 +24,8 @@ library(splitstackshape)
 ############ Database ############
 
 ### BindingDB_All database -> importing ###
-ref.all <- read.csv('../data/BindingDB_All.tsv', '\t', stringsAsFactors = F, header = T)
+## ## Due to the size of the file, it is necessary to download it directly from the BindingDB database.
+ref.all <- read.csv('BindingDB_All.tsv', '\t', stringsAsFactors = F, header = T)
 
 ### Selecting columns and saving the Referenced database ###
 refdb <- ref.all %>%
@@ -50,6 +51,8 @@ refdb <- refdb %>%
 
 ######################################################################
 ############ natural product databases (NuBBE) ############
+
+
 
 ### NuBBE list (plant) -> importing ###
 nubbedb <- read.csv('../data/plants_NuBBE.inchikey', header = F, stringsAsFactors = F)
