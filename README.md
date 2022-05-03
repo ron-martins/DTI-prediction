@@ -3,4 +3,4 @@ Pipeline script using heterogeneous ensemble matrix factorization and network-ba
 
 Support material for the article under revision.
 
-Authors: Ronald Martins, Marcelo Ferreira da Costa Gomes and Ernesto Raul Caffarena
+Authors: Ronald Sodre Martins, Marcelo Ferreira da Costa Gomes and Ernesto Raul Caffarena
