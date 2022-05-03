@@ -24,7 +24,7 @@ library(splitstackshape)
 ############ Database ############
 
 ### BindingDB_All database -> importing ###
-ref.all <- read.csv('BindingDB_All.tsv', '\t', stringsAsFactors = F, header = T)
+ref.all <- read.csv('../data/BindingDB_All.tsv', '\t', stringsAsFactors = F, header = T)
 
 ### Selecting columns and saving the Referenced database ###
 refdb <- ref.all %>%
@@ -52,7 +52,7 @@ refdb <- refdb %>%
 ############ natural product databases (NuBBE) ############
 
 ### NuBBE list (plant) -> importing ###
-nubbedb <- read.csv('plants_NuBBE.inchikey', header = F, stringsAsFactors = F)
+nubbedb <- read.csv('../data/plants_NuBBE.inchikey', header = F, stringsAsFactors = F)
 names(nubbedb) <- 'key' 
 
 ### Comparing NuBBE list to Referenced databases (filtered) ###
@@ -95,8 +95,8 @@ for(i in 1:nrow(target.seq)){
 nubbe.ref.drug <- unique(nubbe.ref %>% select(InChIKey))
 names(nubbe.ref.drug) <- 'key'
 
-### Drug Fingerprint from PaDEL- PubChem ###
-FP.pub <- read.csv('NuBBE_ref_drugs-Pub.csv')
+### Drug Fingerprint from PaDEL- PubChem software ###
+FP.pub <- read.csv('../data/NuBBE_ref_drugs-Pub.csv')
 FP.pub <- cbind(nubbe.ref.drug, FP.pub) %>% select(-Name)
 
 
