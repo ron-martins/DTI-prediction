@@ -52,8 +52,6 @@ refdb <- refdb %>%
 ######################################################################
 ############ natural product databases (NuBBE) ############
 
-
-
 ### NuBBE list (plant) -> importing ###
 nubbedb <- read.csv('../data/plants_NuBBE.inchikey', header = F, stringsAsFactors = F)
 names(nubbedb) <- 'key' 
@@ -70,6 +68,7 @@ nubbe.ref <- refdb[refdb$InChIKey %in% nubbedb$key, ] %>%
 ############ selecting targets from UniProt database  ############
 
 ### importing and tidying UniProt database ###
+## ## Due to the size of the file, it is necessary to download it directly from the UniProt database in FASTA format.
 UniProt.df <- data.frame(names(readAAStringSet('uniprot_sprot.fasta')), 
                          paste(readAAStringSet('uniprot_sprot.fasta')))
 
