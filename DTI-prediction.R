@@ -73,6 +73,8 @@ nubbe.ref <- refdb[refdb$InChIKey %in% nubbedb$key, ] %>%
 UniProt.df <- data.frame(names(readAAStringSet('uniprot_sprot.fasta')), 
                          paste(readAAStringSet('uniprot_sprot.fasta')))
 
+colnames(UniProt.df) <- c('seq_name', 'sequence')
+
 UniProt.seq <- unique(subset(UniProt.df %>%
                                cSplit(splitCols = "seq_name",
                                       sep = "|", direction = "long") %>%
