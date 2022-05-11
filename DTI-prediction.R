@@ -83,8 +83,8 @@ UniProt.seq <- unique(subset(UniProt.df %>%
 UniProt.seq[] <- lapply(UniProt.seq, as.character)
 
 ### selecting UniProt code from NuBBE list ###
-target.seq = matrix(data = NA, nrow = nrow(target.list), ncol = 1, dimnames = c(target.list, "Sequence"))
 target.list = unique(nubbe.ref %>% select(c(UniProt)))
+target.seq = matrix(data = NA, nrow = nrow(target.list), ncol = 1, dimnames = c(target.list, "Sequence"))
 
 for(i in 1:nrow(target.seq)){
   x = target.list[i, ]
