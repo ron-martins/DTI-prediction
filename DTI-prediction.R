@@ -77,10 +77,8 @@ colnames(UniProt.df) <- c('seq_name', 'sequence')
 UniProt.seq <- unique(subset(UniProt.df %>%
                                cSplit(splitCols = "seq_name",
                                       sep = "|", direction = "long") %>%
-                               filter(!is.na(seq_name)), seq_name!= "sp") %>% 
-                        distinct(sequence, .keep_all = T))
+                               filter(nchar(as.character(seq_name)) == 6)))
 
-UniProt.seq[] <- lapply(UniProt.seq, as.character)
 
 ### selecting UniProt code from NuBBE list ###
 target.list = unique(nubbe.ref %>% select(c(UniProt)))
